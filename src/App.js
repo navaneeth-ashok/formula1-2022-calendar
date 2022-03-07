@@ -2,7 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import ScheduleComponent from "./ScheduleComponent";
 
-const RaceDetails = {
+const raceDetails = {
   bahrain: {
     name: "FORMULA 1 GULF AIR BAHRAIN GRAND PRIX 2022",
     gpName: "Bahrain Grand Prix",
@@ -629,36 +629,9 @@ function App() {
   return (
     <div className="App">
       <div className="grid grid-cols-4">
-        <ScheduleComponent
-          raceDetails={RaceDetails.bahrain}
-        ></ScheduleComponent>
-        <ScheduleComponent
-          raceDetails={RaceDetails.bahrain}
-        ></ScheduleComponent>
-        <ScheduleComponent
-          raceDetails={RaceDetails.bahrain}
-        ></ScheduleComponent>
-        <ScheduleComponent
-          raceDetails={RaceDetails.bahrain}
-        ></ScheduleComponent>
-        <ScheduleComponent
-          raceDetails={RaceDetails.bahrain}
-        ></ScheduleComponent>
-        <ScheduleComponent
-          raceDetails={RaceDetails.bahrain}
-        ></ScheduleComponent>
-        <ScheduleComponent
-          raceDetails={RaceDetails.bahrain}
-        ></ScheduleComponent>
-        <ScheduleComponent
-          raceDetails={RaceDetails.bahrain}
-        ></ScheduleComponent>
-        <ScheduleComponent
-          raceDetails={RaceDetails.bahrain}
-        ></ScheduleComponent>
-        <ScheduleComponent
-          raceDetails={RaceDetails.bahrain}
-        ></ScheduleComponent>
+        {Object.keys(raceDetails).map((key) => (
+          <ScheduleComponent raceDetails={raceDetails[key]} key={key} />
+        ))}
       </div>
     </div>
   );
