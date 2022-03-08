@@ -1,0 +1,37 @@
+.card__main {
+  background-color: #242424;
+}
+
+.card__schedule {
+  background-color: #141414;
+}
+
+.card__schedule .race {
+  color: #ff0800;
+}
+.card__schedule .quali {
+  color: #d6cb00;
+}
+.card__schedule .sprint {
+  color: #00ff00;
+}
+.card__schedule .fp {
+  color: #9c9c9c;
+}
+
+.card__schedule .date {
+  color: #d4d4d4;
+}
+.card__schedule .time {
+  color: #949494;
+}
+.card__schedule .day {
+  color: #454545;
+}
+
+.card__divider {
+  border-top: 2px solid #2b2b2b;
+  border-radius: 5px;
+  width: 80%;
+  margin: 0 auto;
+}
