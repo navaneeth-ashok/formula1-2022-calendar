@@ -1,14 +1,48 @@
 import logo from "./logo.svg";
 import "./App.css";
 import ScheduleComponent from "./ScheduleComponent";
+import bahrainCircuit from "./tracks/bahrain.png";
+import jeddah from "./tracks/jeddah.png";
+import melbourne from "./tracks/melbourne.png";
+import imola from "./tracks/imola.png";
+import miami from "./tracks/miami.png";
+import catalunia from "./tracks/catalunia.png";
+import monaco from "./tracks/monaco.png";
+import baku from "./tracks/baku.png";
+import montreal from "./tracks/montreal.png";
+import silverstone from "./tracks/silverstone.png";
+import austria from "./tracks/austria.png";
+import france from "./tracks/france.png";
+import hungaroring from "./tracks/hungaroring.png";
+import belgium from "./tracks/belgium.png";
+import zand from "./tracks/zand.png";
+import monza from "./tracks/monza.png";
+import sg from "./tracks/sg.png";
+import suzuka from "./tracks/suzuka.png";
+import austin from "./tracks/austin.png";
+import mexico from "./tracks/mexico.png";
+import brazil from "./tracks/brazil.png";
+import abu from "./tracks/abu.png";
+import Footer from "./Footer";
+import Header from "./Header";
 
 const raceDetails = {
   bahrain: {
     name: "FORMULA 1 GULF AIR BAHRAIN GRAND PRIX 2022",
     gpName: "Bahrain Grand Prix",
-    track: "BAHRAIN INTERNATIONAL CIRCUIT",
-    location: "Sakhir",
     country: "Bahrain",
+    countryCode: "BH",
+    circuitDetails: {
+      name: "BAHRAIN INTERNATIONAL CIRCUIT",
+      location: "Sakhir",
+      circuitImage: bahrainCircuit,
+      laps: 57,
+      lapRecord: {
+        time: "1:31.447",
+        year: "2005",
+        driver: "Pedro de la Rosa",
+      },
+    },
     confirmed: true,
     practice1: {
       start: "20220318T120000Z",
@@ -34,9 +68,19 @@ const raceDetails = {
   saudi: {
     name: "FORMULA 1 STC SAUDI ARABIAN GRAND PRIX 2022",
     gpName: "Saudi Arabian Grand Prix",
-    track: "JEDDAH CORNICHE CIRCUIT",
-    location: "Jeddah",
     country: "Saudi Arabia",
+    countryCode: "SA",
+    circuitDetails: {
+      name: "JEDDAH CORNICHE CIRCUIT",
+      location: "Jeddah",
+      circuitImage: jeddah,
+      laps: 50,
+      lapRecord: {
+        time: "1:30.734",
+        year: "2021",
+        driver: "Lewis Hamilton",
+      },
+    },
     confirmed: true,
     practice1: {
       start: "20220325T140000Z",
@@ -62,9 +106,19 @@ const raceDetails = {
   australia: {
     name: "FORMULA 1 HEINEKEN AUSTRALIAN GRAND PRIX 2022",
     gpName: "Australian Grand Prix",
-    track: "MELBOURNE GRAND PRIX CIRCUIT",
-    location: "Melbourne",
     country: "Australia",
+    countryCode: "AU",
+    circuitDetails: {
+      name: "MELBOURNE GRAND PRIX CIRCUIT",
+      location: "Melbourne",
+      circuitImage: melbourne,
+      laps: 58,
+      lapRecord: {
+        time: "1:24.125",
+        year: "2004",
+        driver: "Michael Schumacher",
+      },
+    },
     confirmed: true,
     practice1: {
       start: "20220408T030000Z",
@@ -90,9 +144,19 @@ const raceDetails = {
   italy: {
     name: "FORMULA 1 ROLEX GRAN PREMIO DELL'EMILIA ROMAGNA 2022",
     gpName: "Emilia Romagna Grand Prix",
-    track: "AUTODROMO ENZO E DINO FERRARI",
-    location: "Imola",
     country: "Italy",
+    countryCode: "IT",
+    circuitDetails: {
+      name: "AUTODROMO ENZO E DINO FERRARI",
+      location: "Imola",
+      circuitImage: imola,
+      laps: 63,
+      lapRecord: {
+        time: "1:15.484",
+        year: "2020",
+        driver: "Lewis Hamilton",
+      },
+    },
     confirmed: false,
     practice1: {
       start: "20220422T120000Z",
@@ -122,9 +186,19 @@ const raceDetails = {
   usa: {
     name: "FORMULA 1 CRYPTO.COM MIAMI GRAND PRIX 2022",
     gpName: "Miami Grand Prix",
-    track: "MIAMI INTERNATIONAL AUTODROME",
-    location: "Miami",
     country: "USA",
+    countryCode: "US",
+    circuitDetails: {
+      name: "MIAMI INTERNATIONAL AUTODROME",
+      location: "Miami",
+      circuitImage: miami,
+      laps: 57,
+      lapRecord: {
+        time: null,
+        year: null,
+        driver: null,
+      },
+    },
     confirmed: true,
     practice1: {
       start: "20220506T183000Z",
@@ -150,9 +224,19 @@ const raceDetails = {
   spain: {
     name: "FORMULA 1 PIRELLI GRAN PREMIO DE ESPAÑA 2022",
     gpName: "Spanish Grand Prix",
-    track: "CIRCUIT DE BARCELONA-CATALUNYA",
-    location: "Catalunya",
     country: "Spain",
+    countryCode: "ES",
+    circuitDetails: {
+      name: "CIRCUIT DE BARCELONA-CATALUNYA",
+      location: "Catalunya",
+      circuitImage: catalunia,
+      laps: 66,
+      lapRecord: {
+        time: "1:18.149",
+        year: "2021",
+        driver: "Max Verstappen",
+      },
+    },
     confirmed: true,
     practice1: {
       start: "20220520T120000Z",
@@ -178,9 +262,19 @@ const raceDetails = {
   monaco: {
     name: "FORMULA 1 GRAND PRIX DE MONACO 2022",
     gpName: "Monaco Grand Prix",
-    track: "CIRCUIT DE MONACO",
-    location: "Monte Carlo",
     country: "Monaco",
+    countryCode: "MC",
+    circuitDetails: {
+      name: "CIRCUIT DE MONACO",
+      location: "Monte Carlo",
+      circuitImage: monaco,
+      laps: 78,
+      lapRecord: {
+        time: "1:12.909",
+        year: "2021",
+        driver: "Lewis Hamilton",
+      },
+    },
     confirmed: true,
     practice1: {
       start: "20220527T120000Z",
@@ -206,9 +300,19 @@ const raceDetails = {
   azerbaijan: {
     name: "FORMULA 1 AZERBAIJAN GRAND PRIX 2022",
     gpName: "Azerbaijan Grand Prix",
-    track: "BAKU CITY CIRCUIT",
-    location: "Baku",
     country: "Azerbaijan",
+    countryCode: "AZ",
+    circuitDetails: {
+      name: "BAKU CITY CIRCUIT",
+      location: "Baku",
+      circuitImage: baku,
+      laps: 51,
+      lapRecord: {
+        time: "1:43.009",
+        year: "2019",
+        driver: "Charles Leclerc",
+      },
+    },
     confirmed: true,
     practice1: {
       start: "20220610T110000Z",
@@ -234,9 +338,19 @@ const raceDetails = {
   canada: {
     name: "FORMULA 1 GRAND PRIX DU CANADA 2022",
     gpName: "Canadian Grand Prix",
-    track: "CIRCUIT GILLES-VILLENEUVE",
-    location: "Montreal",
     country: "Canada",
+    countryCode: "CA",
+    circuitDetails: {
+      name: "CIRCUIT GILLES-VILLENEUVE",
+      location: "Montreal",
+      circuitImage: montreal,
+      laps: 70,
+      lapRecord: {
+        time: "1:13.078",
+        year: "2019",
+        driver: "Valtteri Bottas",
+      },
+    },
     confirmed: true,
     practice1: {
       start: "20220617T180000Z",
@@ -262,9 +376,19 @@ const raceDetails = {
   britain: {
     name: "FORMULA 1 BRITISH GRAND PRIX 2022",
     gpName: "British Grand Prix",
-    track: "SILVERSTONE CIRCUIT",
-    location: "Silverstone",
     country: "Britain",
+    countryCode: "GB",
+    circuitDetails: {
+      name: "SILVERSTONE CIRCUIT",
+      location: "Silverstone",
+      circuitImage: silverstone,
+      laps: 52,
+      lapRecord: {
+        time: "1:27.097",
+        year: "2020",
+        driver: "Max Verstappen",
+      },
+    },
     confirmed: true,
     practice1: {
       start: "20220701T120000Z",
@@ -290,9 +414,19 @@ const raceDetails = {
   austria: {
     name: "FORMULA 1 GROSSER PREIS VON ÖSTERREICH 2022",
     gpName: "Austrian Grand Prix",
-    track: "RED BULL RING",
-    location: "Spielberg",
     country: "Austria",
+    countryCode: "AT",
+    circuitDetails: {
+      name: "RED BULL RING",
+      location: "Spielberg",
+      circuitImage: austria,
+      laps: 71,
+      lapRecord: {
+        time: "1:05.619",
+        year: "2020",
+        driver: "Carlos Sainz",
+      },
+    },
     confirmed: false,
     practice1: {
       start: "20220708T120000Z",
@@ -318,9 +452,19 @@ const raceDetails = {
   france: {
     name: "FORMULA 1 GRAND PRIX DE FRANCE 2022",
     gpName: "French Grand Prix",
-    track: "CIRCUIT PAUL RICARD",
-    location: "Paul Ricard",
     country: "France",
+    countryCode: "FR",
+    circuitDetails: {
+      name: "CIRCUIT PAUL RICARD",
+      location: "Paul Ricard",
+      circuitImage: france,
+      laps: 53,
+      lapRecord: {
+        time: "1:32.740",
+        year: "2019",
+        driver: "Sebastian Vettel",
+      },
+    },
     confirmed: true,
     practice1: {
       start: "20220722T120000Z",
@@ -349,6 +493,18 @@ const raceDetails = {
     track: "HUNGARORING",
     location: "Budapest",
     country: "Hungary",
+    countryCode: "HU",
+    circuitDetails: {
+      name: "HUNGARORING",
+      location: "Budapest",
+      circuitImage: hungaroring,
+      laps: 70,
+      lapRecord: {
+        time: "1:16.627",
+        year: "2020",
+        driver: "Lewis Hamilton",
+      },
+    },
     confirmed: true,
     practice1: {
       start: "20220729T120000Z",
@@ -374,9 +530,19 @@ const raceDetails = {
   belgium: {
     name: "FORMULA 1 ROLEX BELGIAN GRAND PRIX 2022",
     gpName: "Belgian Grand Prix",
-    track: "CIRCUIT DE SPA-FRANCORCHAMPS",
-    location: "Spa-Francorchamps",
     country: "Belgium",
+    countryCode: "BE",
+    circuitDetails: {
+      name: "CIRCUIT DE SPA-FRANCORCHAMPS",
+      location: "Spa-Francorchamps",
+      circuitImage: belgium,
+      laps: 44,
+      lapRecord: {
+        time: "1:46.286",
+        year: "2018",
+        driver: "Valtteri Bottas",
+      },
+    },
     confirmed: true,
     practice1: {
       start: "20220826T120000Z",
@@ -402,9 +568,19 @@ const raceDetails = {
   netherlands: {
     name: "FORMULA 1 HEINEKEN DUTCH GRAND PRIX 2022",
     gpName: "Dutch Grand Prix",
-    track: "CIRCUIT ZANDVOORT",
-    location: "Zandvoort",
     country: "Netherlands",
+    countryCode: "NL",
+    circuitDetails: {
+      name: "CIRCUIT ZANDVOORT",
+      location: "Zandvoort",
+      circuitImage: zand,
+      laps: 72,
+      lapRecord: {
+        time: "1:11.097",
+        year: "2021",
+        driver: "Lewis Hamilton",
+      },
+    },
     confirmed: true,
     practice1: {
       start: "20220902T120000Z",
@@ -430,9 +606,19 @@ const raceDetails = {
   italy2: {
     name: "FORMULA 1 PIRELLI GRAN PREMIO D’ITALIA 2022",
     gpName: "Italian Grand Prix",
-    track: "AUTODROMO NAZIONALE MONZA",
-    location: "Monza",
     country: "Italy",
+    countryCode: "IT",
+    circuitDetails: {
+      name: "AUTODROMO NAZIONALE MONZA",
+      location: "Monza",
+      circuitImage: monza,
+      laps: 53,
+      lapRecord: {
+        time: "1:21.046",
+        year: "2004",
+        driver: "Rubens Barrichello",
+      },
+    },
     confirmed: true,
     practice1: {
       start: "20220909T120000Z",
@@ -458,9 +644,19 @@ const raceDetails = {
   singapore: {
     name: "FORMULA 1 SINGAPORE GRAND PRIX 2022",
     gpName: "Singapore Grand Prix",
-    track: "MARINA BAY STREET CIRCUIT",
-    location: "Singapore",
     country: "Singapore",
+    countryCode: "SG",
+    circuitDetails: {
+      name: "MARINA BAY STREET CIRCUIT",
+      location: "Singapore",
+      circuitImage: sg,
+      laps: 70,
+      lapRecord: {
+        time: "1:41.905",
+        year: "2018",
+        driver: "Kevin Magnussen",
+      },
+    },
     confirmed: true,
     practice1: {
       start: "20220930T100000Z",
@@ -486,9 +682,19 @@ const raceDetails = {
   japan: {
     name: "FORMULA 1 JAPANESE GRAND PRIX 2022",
     gpName: "Japanese Grand Prix",
-    track: "SUZUKA INTERNATIONAL RACING COURSE",
-    location: "Suzuka",
     country: "Japan",
+    countryCode: "JP",
+    circuitDetails: {
+      name: "SUZUKA INTERNATIONAL RACING COURSE",
+      location: "Suzuka",
+      circuitImage: suzuka,
+      laps: 53,
+      lapRecord: {
+        time: "1:30.983",
+        year: "2019",
+        driver: "Lewis Hamilton",
+      },
+    },
     confirmed: true,
     practice1: {
       start: "20221007T040000Z",
@@ -514,9 +720,19 @@ const raceDetails = {
   usa2: {
     name: "FORMULA 1 ARAMCO UNITED STATES GRAND PRIX 2022",
     gpName: "United States Grand Prix",
-    track: "CIRCUIT OF THE AMERICAS",
-    location: "Austin",
     country: "USA",
+    countryCode: "US",
+    circuitDetails: {
+      name: "CIRCUIT OF THE AMERICAS",
+      location: "Austin",
+      circuitImage: austin,
+      laps: 56,
+      lapRecord: {
+        time: "1:36.169",
+        year: "2019",
+        driver: "Charles Leclerc",
+      },
+    },
     confirmed: true,
     practice1: {
       start: "20221021T190000Z",
@@ -542,9 +758,19 @@ const raceDetails = {
   mexico: {
     name: "FORMULA 1 GRAN PREMIO DE LA CIUDAD DE MÉXICO 2022",
     gpName: "Mexico City Grand Prix",
-    track: "AUTÓDROMO HERMANOS RODRÍGUEZ",
-    location: "Mexico City",
     country: "Mexico",
+    countryCode: "MX",
+    circuitDetails: {
+      name: "AUTÓDROMO HERMANOS RODRÍGUEZ",
+      location: "Mexico City",
+      circuitImage: mexico,
+      laps: 71,
+      lapRecord: {
+        time: "1:17.774",
+        year: "2021",
+        driver: "Valtteri Bottas",
+      },
+    },
     confirmed: true,
     practice1: {
       start: "20221028T180000Z",
@@ -570,9 +796,19 @@ const raceDetails = {
   brazil: {
     name: "FORMULA 1 HEINEKEN GRANDE PRÊMIO DE SÃO PAULO 2022",
     gpName: "Brazilian Grand Prix",
-    track: "AUTÓDROMO JOSÉ CARLOS PACE",
-    location: "Sao Paulo",
     country: "Brazil",
+    countryCode: "BR",
+    circuitDetails: {
+      name: "AUTÓDROMO JOSÉ CARLOS PACE",
+      location: "Sao Paulo",
+      circuitImage: brazil,
+      laps: 71,
+      lapRecord: {
+        time: "1:10.540",
+        year: "2018",
+        driver: "Valtteri Bottas",
+      },
+    },
     confirmed: true,
     practice1: {
       start: "20221111T160000Z",
@@ -598,9 +834,19 @@ const raceDetails = {
   abudhabi: {
     name: "FORMULA 1 ETIHAD AIRWAYS ABU DHABI GRAND PRIX 2022",
     gpName: "Abu Dhabi Grand Prix",
-    track: "YAS MARINA CIRCUIT",
-    location: "Yas Marina",
-    country: "Abu Dhabi",
+    country: "UAE",
+    countryCode: "AE",
+    circuitDetails: {
+      name: "Abu Dhabi Grand Prix",
+      location: "Yas Marina",
+      circuitImage: abu,
+      laps: 58,
+      lapRecord: {
+        time: "1:26.103",
+        year: "2021",
+        driver: "Max Verstappen",
+      },
+    },
     confirmed: true,
     practice1: {
       start: "20221118T100000Z",
@@ -628,11 +874,13 @@ const raceDetails = {
 function App() {
   return (
     <div className="App">
+      <Header />
       <div className="grid grid-cols-1 md:grid-cols-3">
         {Object.keys(raceDetails).map((key) => (
           <ScheduleComponent raceDetails={raceDetails[key]} key={key} />
         ))}
       </div>
+      <Footer />
     </div>
   );
 }

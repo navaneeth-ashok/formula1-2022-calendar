@@ -1,5 +1,13 @@
+:root {
+  --race-font-size: 1.25rem;
+}
+
+body {
+  font-size: var(--race-font-size);
+}
+
 .card__main {
-  background-color: #242424;
+  background-color: #212121;
 }
 
 .card__schedule {
@@ -8,15 +16,19 @@
 
 .card__schedule .race {
   color: #ff0800;
+  font-size: var(--race-font-size);
 }
 .card__schedule .quali {
   color: #d6cb00;
+  font-size: var(--race-font-size);
 }
 .card__schedule .sprint {
   color: #00ff00;
+  font-size: var(--race-font-size);
 }
-.card__schedule .fp {
+.card__schedule .freepractice {
   color: #9c9c9c;
+  font-size: var(--race-font-size);
 }
 
 .card__schedule .date {
@@ -34,4 +46,68 @@
   border-radius: 5px;
   width: 80%;
   margin: 0 auto;
+}
+
+.gp__name {
+  color: #ffdca3;
+  font-size: 1.4rem;
+}
+
+.vertical-center {
+  margin: 0;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.country-flag {
+  max-width: fit-content;
+  border-radius: 0.375rem 0 0.375rem 0;
+}
+
+.circuit__image {
+  padding: 0.75em;
+  border-radius: 0.375rem;
+}
+
+.card__track {
+  background-color: #242424;
+  box-shadow: 0px 1px 26px #141414;
+}
+
+.card__track h3 {
+  color: #b8ae00;
+  font-size: 1.25rem;
+}
+
+.card__track .name {
+  color: #d4d4d4;
+  font-size: 0.875rem;
+}
+.card__track .location {
+  color: #a1a1a1;
+  font-size: 1rem;
+}
+.card__track .country {
+  color: #828282;
+  font-size: 1.25rem;
+}
+
+.lap-text {
+  color: #828282;
+  font-size: 0.9rem;
+}
+
+.lap-count {
+  color: antiquewhite;
+}
+
+.lap-driver {
+  font-size: 0.7rem;
+  color: #828282;
+}
+
+.tbc-warning {
+  color: antiquewhite;
+  font-size: 0.7rem;
 }

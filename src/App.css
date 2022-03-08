@@ -28,6 +28,42 @@
   color: #61dafb;
 }
 
+.f1-con {
+  text-align: center;
+  font-size: 0.7rem;
+  color: grey;
+  max-width: 50rem;
+  margin: 0 auto;
+}
+
+.header {
+  margin: 0 auto;
+}
+
+.header h1 {
+  display: inline-block;
+}
+
+img.site-logo {
+  display: inline;
+  width: 10rem;
+}
+
+/* .header .site-logo {
+  margin-left: auto;
+}
+
+img.site-logo {
+  width: 120px;
+} */
+
+.header .site-title {
+  color: #e10600;
+  font-size: 2em;
+  vertical-align: middle;
+  padding: 2rem;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

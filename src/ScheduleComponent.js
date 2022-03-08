@@ -1,168 +1,101 @@
 import "./ScheduleComponent.css";
+import EventComponent from "./EventComponent.js";
+import Flags from "country-flag-icons/react/3x2";
+
 const ScheduleComponent = ({ raceDetails }) => {
-  console.log(raceDetails);
+  const Flag = raceDetails.countryCode ? Flags[raceDetails.countryCode] : null;
+
   return (
     <div className="card__main m-2 rounded-md">
-      <div className="title grid grid-cols-3">
-        <div className="col-span-1">
-          <span>Flag comes here</span>
+      <div className="title grid grid-cols-5">
+        <div className="col-span-1 text-center">
+          {Flag !== null ? <Flag className="country-flag" /> : null}
         </div>
-        <div className="col-span-2">
-          <h2>{raceDetails.gpName}</h2>
+        <div className="col-span-4 text-center">
+          <h2 className="gp__name vertical-center">{raceDetails.gpName}</h2>
         </div>
       </div>
-      <div className="card__schedule m-2 rounded-md">
-        <div className="section__race mt-2">
-          <div className="grid grid-cols-4 p-2">
-            <div className="col-span-2 race text-left ml-10">Race</div>
-            <div className="col-span-1">
-              <div className="grid-rows-2">
-                <div className="row date">
-                  {dateConvertor(raceDetails.grandprix.start)}
-                </div>
-                <div className="row time">
-                  {timeConvertor(raceDetails.grandprix.start)}
-                </div>
-              </div>
-            </div>
-            <div className="col-span-1 day">
-              {getDay(raceDetails.grandprix.start)}
-            </div>
+      <div className="card__schedule m-2 rounded-md pt-2 pb-2">
+        {raceDetails.confirmed ? (
+          ""
+        ) : (
+          <div className="tbc-warning">
+            The event is yet to be confirmed, the date and time could change
           </div>
-        </div>
+        )}
+        <EventComponent
+          eventDetails={raceDetails.grandprix}
+          eventType="race"
+          eventName="Race"
+        />
         <div className="card__divider"></div>
-        <div className="section__quali mt-2">
-          <div className="grid grid-cols-4 p-2">
-            <div className="col-span-2 quali text-left ml-10">Qualifying</div>
-            <div className="col-span-1">
-              <div className="grid-rows-2">
-                <div className="row date">
-                  {dateConvertor(raceDetails.qualifying.start)}
-                </div>
-                <div className="row time">
-                  {timeConvertor(raceDetails.qualifying.start)}
-                </div>
-              </div>
-            </div>
-            <div className="col-span-1 day">
-              {getDay(raceDetails.qualifying.start)}
-            </div>
-          </div>
-        </div>
+        <EventComponent
+          eventDetails={raceDetails.qualifying}
+          eventType="quali"
+          eventName="Qualifying"
+        />
         <div className="card__divider"></div>
         {raceDetails.sprint ? (
-          <div className="section__sprint mt-2">
-            <div className="grid grid-cols-4 p-2">
-              <div className="col-span-2 sprint text-left ml-10">Sprint</div>
-              <div className="col-span-1">
-                <div className="grid-rows-2">
-                  <div className="row date">
-                    {dateConvertor(raceDetails.sprint.start)}
-                  </div>
-                  <div className="row time">
-                    {timeConvertor(raceDetails.sprint.start)}
-                  </div>
-                </div>
-              </div>
-              <div className="col-span-1 day">
-                {getDay(raceDetails.sprint.start)}
-              </div>
-            </div>
-            <div className="card__divider"></div>
-          </div>
+          <EventComponent
+            eventDetails={raceDetails.sprint}
+            eventType="sprint"
+            eventName="Sprint"
+          />
         ) : null}
-        <div className="section__freepractice mt-2">
-          <div className="grid grid-cols-4 p-2">
-            <div className="col-span-2 fp text-left ml-10">FP3</div>
-            <div className="col-span-1">
-              <div className="grid-rows-2">
-                <div className="row date">
-                  {dateConvertor(raceDetails.practice3.start)}
-                </div>
-                <div className="row time">
-                  {timeConvertor(raceDetails.practice3.start)}
-                </div>
-              </div>
-            </div>
-            <div className="col-span-1 day">
-              {getDay(raceDetails.practice3.start)}
-            </div>
-          </div>
-        </div>
+        {raceDetails.sprint ? <div className="card__divider"></div> : null}
+        <EventComponent
+          eventDetails={raceDetails.practice3}
+          eventType="freepractice"
+          eventName="FP3"
+        />
         <div className="card__divider"></div>
-        <div className="section__freepractice mt-2">
-          <div className="grid grid-cols-4 p-2">
-            <div className="col-span-2 fp text-left ml-10">FP2</div>
-            <div className="col-span-1">
-              <div className="grid-rows-2">
-                <div className="row date">
-                  {dateConvertor(raceDetails.practice2.start)}
-                </div>
-                <div className="row time">
-                  {timeConvertor(raceDetails.practice2.start)}
-                </div>
-              </div>
-            </div>
-            <div className="col-span-1 day">
-              {getDay(raceDetails.practice2.start)}
-            </div>
-          </div>
-        </div>
+        <EventComponent
+          eventDetails={raceDetails.practice2}
+          eventType="freepractice"
+          eventName="FP2"
+        />
         <div className="card__divider"></div>
-        <div className="section__freepractice mt-2">
-          <div className="grid grid-cols-4 p-2">
-            <div className="col-span-2 fp text-left ml-10">FP1</div>
-            <div className="col-span-1">
-              <div className="grid-rows-2">
-                <div className="row date">
-                  {dateConvertor(raceDetails.practice1.start)}
-                </div>
-                <div className="row time">
-                  {timeConvertor(raceDetails.practice1.start)}
-                </div>
+        <EventComponent
+          eventDetails={raceDetails.practice1}
+          eventType="freepractice"
+          eventName="FP1"
+        />
+      </div>
+      <div className="card__track m-2 rounded-md p-2">
+        <h3 className="pl-3 pr-3">{raceDetails.name}</h3>
+        <img
+          src={raceDetails.circuitDetails.circuitImage}
+          className="circuit__image"
+          alt={raceDetails.circuitDetails.name}
+        />
+        <div className="name">{raceDetails.circuitDetails.name}</div>
+        {/* <div className="location">{raceDetails.circuitDetails.location}</div>
+        <div className="country">{raceDetails.country}</div> */}
+        <div className="grid grid-cols-5">
+          <div className="col-span-2">
+            <div className="lap-text">Number of Laps</div>
+            <div className="lap-count">{raceDetails.circuitDetails.laps}</div>
+          </div>
+          <div className="col-span-3">
+            <div className="row lap-text ">Lap Record</div>
+            <div className="row lap-count">
+              {raceDetails.circuitDetails.lapRecord.time}{" "}
+              <div className="lap-driver">
+                {raceDetails.circuitDetails.lapRecord.driver} (
+                {raceDetails.circuitDetails.lapRecord.year})
               </div>
             </div>
-            <div className="col-span-1 day">
-              {getDay(raceDetails.practice1.start)}
+            {/* <div className="row">
+              {raceDetails.circuitDetails.lapRecord.year}
             </div>
+            <div className="row">
+              {raceDetails.circuitDetails.lapRecord.driver}
+            </div> */}
           </div>
         </div>
       </div>
     </div>
   );
-};
-
-const getUTCTime = (inputString) => {
-  const year = inputString.substring(0, 4);
-  const month = inputString.substring(4, 6);
-  const date = inputString.substring(6, 8);
-  const HH = inputString.substring(9, 11);
-  const mm = inputString.substring(11, 13);
-  const dateString = new Date(Date.UTC(year, month - 1, date, HH, mm));
-  return dateString;
-};
-
-const dateConvertor = (inputString) => {
-  const dateString = getUTCTime(inputString);
-  return (
-    dateString.toLocaleString("default", { month: "short" }) +
-    " " +
-    dateString.getDate()
-  );
-};
-
-const timeConvertor = (inputString) => {
-  const dateString = getUTCTime(inputString);
-  return (
-    dateString.getHours() +
-    ":" +
-    String(dateString.getMinutes()).padStart(2, "0")
-  );
-};
-
-const getDay = (inputString) => {
-  const dateString = getUTCTime(inputString);
-  return dateString.toLocaleDateString("default", { weekday: "short" });
 };
 
 export default ScheduleComponent;
