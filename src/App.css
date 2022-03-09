@@ -72,3 +72,12 @@ img.site-logo {
     transform: rotate(360deg);
   }
 }
+
+@media only screen and (max-width: 768px) {
+}
+
+@media only screen and (max-width: 546px) {
+  .header .site-title {
+    padding: 0;
+  }
+}

@@ -875,7 +875,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <div className="grid grid-cols-1 md:grid-cols-3">
+      <div className="grid grid-cols-3">
         {Object.keys(raceDetails).map((key) => (
           <ScheduleComponent raceDetails={raceDetails[key]} key={key} />
         ))}
