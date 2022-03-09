@@ -25,6 +25,7 @@ import brazil from "./tracks/brazil.png";
 import abu from "./tracks/abu.png";
 import Footer from "./Footer";
 import Header from "./Header";
+import { useEffect, useState } from "react";
 
 const raceDetails = {
   bahrain: {
@@ -872,10 +873,61 @@ const raceDetails = {
 };
 
 function App() {
+  const [currentRaceID, setCurrentRaceID] = useState();
+  const [nextRaceID, setNextRaceID] = useState();
+
+  const getIDofCurrentRace = () => {
+    console.log("Finding current or upcoming race");
+
+    const currentDate = new Date(new Date().toISOString());
+
+    // const formattedDate = date.replaceAll("-", "").substring(0, 8);
+    for (let race in raceDetails) {
+      const year = raceDetails[race].practice1.start.substring(0, 4);
+      const month = raceDetails[race].practice1.start.substring(4, 6);
+      const date = raceDetails[race].practice1.start.substring(6, 8);
+      const HH = raceDetails[race].practice1.start.substring(9, 11);
+      const mm = raceDetails[race].practice1.start.substring(11, 13);
+      const dateString = new Date(Date.UTC(year, month - 1, date, HH, mm));
+      const daysLeft = (dateString - currentDate) / (1000 * 60 * 60 * 24);
+      console.log(daysLeft);
+      if (daysLeft > 0) {
+        console.log("Found the next upcoming race");
+        // find id of the race
+        const raceID = raceDetails[race].gpName.replaceAll(" ", "");
+        console.log(raceID);
+        setCurrentRaceID(raceID);
+        break;
+      }
+    }
+  };
+
+  useEffect(() => {
+    getIDofCurrentRace();
+  }, []);
+
   return (
     <div className="App">
       <Header />
-      <div className="grid grid-cols-3">
+      <nav>
+        {/* <div className="grid grid-cols-6">
+          {Object.keys(raceDetails).map((key) => (
+            <div className="shrink-0 snap-center" key={key}>
+              <a
+                href={`#${raceDetails[key].gpName.replaceAll(" ", "")}`}
+                title={raceDetails[key].gpName}
+              >
+                {raceDetails[key].gpName}
+              </a>
+            </div>
+          ))}
+        </div> */}
+
+        <a href={`#${currentRaceID}`} title="Previous Race">
+          Next Race
+        </a>
+      </nav>
+      <div className="flex overflow-x-auto gap-1 snap-x snap-mandatory ">
         {Object.keys(raceDetails).map((key) => (
           <ScheduleComponent raceDetails={raceDetails[key]} key={key} />
         ))}

@@ -4,9 +4,11 @@ import Flags from "country-flag-icons/react/3x2";
 
 const ScheduleComponent = ({ raceDetails }) => {
   const Flag = raceDetails.countryCode ? Flags[raceDetails.countryCode] : null;
-
   return (
-    <div className="card__main m-2 rounded-md">
+    <div
+      className="card__main m-2 rounded-md shrink-0 snap-center"
+      id={raceDetails.gpName.replaceAll(" ", "")}
+    >
       <div className="title grid grid-cols-5">
         <div className="col-span-1 text-center">
           {Flag !== null ? <Flag className="country-flag" /> : null}

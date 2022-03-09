@@ -8,6 +8,7 @@ body {
 
 .card__main {
   background-color: #212121;
+  max-width: 25rem;
 }
 
 .card__schedule {
