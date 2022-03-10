@@ -2,12 +2,14 @@ import "./ScheduleComponent.css";
 import EventComponent from "./EventComponent.js";
 import Flags from "country-flag-icons/react/3x2";
 
-const ScheduleComponent = ({ raceDetails }) => {
+const ScheduleComponent = ({ raceDetails, currentRaceID }) => {
   const Flag = raceDetails.countryCode ? Flags[raceDetails.countryCode] : null;
+  const raceID = raceDetails.gpName.replaceAll(" ", "");
+  const currentRace = raceID === currentRaceID;
   return (
     <div
-      className="card__main m-2 rounded-md shrink-0 snap-center"
-      id={raceDetails.gpName.replaceAll(" ", "")}
+      className={`card__main m-2 rounded-md shrink-0 snap-center `}
+      id={raceID}
     >
       <div className="title grid grid-cols-5">
         <div className="col-span-1 text-center">
@@ -18,6 +20,15 @@ const ScheduleComponent = ({ raceDetails }) => {
         </div>
       </div>
       <div className="card__schedule m-2 rounded-md pt-2 pb-2">
+        {currentRace ? (
+          <div className="race__weekend" title="Race Weekend">
+            <div className="circle"></div>
+            <div className="circle"></div>
+            <div className="circle"></div>
+            <div className="circle"></div>
+            <div className="circle"></div>
+          </div>
+        ) : null}
         {raceDetails.confirmed ? (
           ""
         ) : (

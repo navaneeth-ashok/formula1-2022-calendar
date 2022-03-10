@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import ScheduleComponent from "./ScheduleComponent";
 import bahrainCircuit from "./tracks/bahrain.png";
@@ -26,6 +25,7 @@ import abu from "./tracks/abu.png";
 import Footer from "./Footer";
 import Header from "./Header";
 import { useEffect, useState } from "react";
+import useWindowDimensions from "./WindowDimension";
 
 const raceDetails = {
   bahrain: {
@@ -872,16 +872,14 @@ const raceDetails = {
   },
 };
 
-function App() {
-  const [currentRaceID, setCurrentRaceID] = useState();
-  const [nextRaceID, setNextRaceID] = useState();
+function App({ current }) {
+  const [currentRaceID, setCurrentRaceID] = useState(null);
+  const [nextRaceID, setNextRaceID] = useState(null);
 
-  const getIDofCurrentRace = () => {
-    console.log("Finding current or upcoming race");
+  const { width } = useWindowDimensions();
 
+  const getIDofCurrentRace = (next = false) => {
     const currentDate = new Date(new Date().toISOString());
-
-    // const formattedDate = date.replaceAll("-", "").substring(0, 8);
     for (let race in raceDetails) {
       const year = raceDetails[race].practice1.start.substring(0, 4);
       const month = raceDetails[race].practice1.start.substring(4, 6);
@@ -890,21 +888,41 @@ function App() {
       const mm = raceDetails[race].practice1.start.substring(11, 13);
       const dateString = new Date(Date.UTC(year, month - 1, date, HH, mm));
       const daysLeft = (dateString - currentDate) / (1000 * 60 * 60 * 24);
-      console.log(daysLeft);
-      if (daysLeft > 0) {
-        console.log("Found the next upcoming race");
-        // find id of the race
-        const raceID = raceDetails[race].gpName.replaceAll(" ", "");
-        console.log(raceID);
-        setCurrentRaceID(raceID);
-        break;
+      // find ongoing race
+      if (!next) {
+        if (daysLeft > -3 && daysLeft < 1) {
+          // console.log("Found the current race");
+          const raceID = raceDetails[race].gpName.replaceAll(" ", "");
+          // console.log(raceID);
+          setCurrentRaceID(raceID);
+          break;
+        }
+      } else {
+        // find upcoming race
+        if (daysLeft > 0) {
+          // console.log("Found the next upcoming race");
+          const raceID = raceDetails[race].gpName.replaceAll(" ", "");
+          // console.log(raceID);
+          setNextRaceID(raceID);
+          break;
+        }
       }
     }
   };
 
   useEffect(() => {
     getIDofCurrentRace();
-  }, []);
+    getIDofCurrentRace(true);
+    if (current === "true") {
+      // console.log("Focussing to the current race");
+      // console.log(currentRaceID);
+      if (currentRaceID != null) {
+        document
+          .getElementById(currentRaceID)
+          .scrollIntoView({ top: 0, behavior: "smooth" });
+      }
+    }
+  }, [currentRaceID, nextRaceID, current]);
 
   return (
     <div className="App">
@@ -922,16 +940,56 @@ function App() {
             </div>
           ))}
         </div> */}
-
-        <a href={`#${currentRaceID}`} title="Previous Race">
-          Next Race
-        </a>
+        {currentRaceID !== null ? (
+          <button
+            type="button"
+            title="Current Race"
+            className="event__link"
+            onClick={() => {
+              document
+                .getElementById(currentRaceID)
+                .scrollIntoView({ top: 0, behavior: "auto" });
+            }}
+          >
+            Current Race
+          </button>
+        ) : null}
+        {nextRaceID !== null ? (
+          <button
+            type="button"
+            title="Next Race"
+            className="event__link"
+            onClick={() => {
+              document
+                .getElementById(nextRaceID)
+                .scrollIntoView({ top: 0, behavior: "auto" });
+            }}
+          >
+            Next Race
+          </button>
+        ) : null}
       </nav>
-      <div className="flex overflow-x-auto gap-1 snap-x snap-mandatory ">
-        {Object.keys(raceDetails).map((key) => (
-          <ScheduleComponent raceDetails={raceDetails[key]} key={key} />
-        ))}
-      </div>
+      {width > 1200 ? (
+        <div className="grid grid-cols-3 ml-10 mr-10">
+          {Object.keys(raceDetails).map((key) => (
+            <ScheduleComponent
+              raceDetails={raceDetails[key]}
+              key={key}
+              currentRaceID={currentRaceID}
+            />
+          ))}
+        </div>
+      ) : (
+        <div className="flex overflow-x-auto gap-1 snap-x snap-mandatory before:w-[1vw] before:shrink-0 after:w-[10vw] after:shrink-0">
+          {Object.keys(raceDetails).map((key) => (
+            <ScheduleComponent
+              raceDetails={raceDetails[key]}
+              key={key}
+              currentRaceID={currentRaceID}
+            />
+          ))}
+        </div>
+      )}
       <Footer />
     </div>
   );

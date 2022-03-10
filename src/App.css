@@ -64,6 +64,15 @@ img.site-logo {
   padding: 2rem;
 }
 
+.event__link {
+  color: rgb(182, 182, 182);
+  margin: 0 1em;
+  font-size: 0.9em;
+}
+.event__link:hover {
+  color: rgb(243, 243, 243);
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

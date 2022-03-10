@@ -8,7 +8,8 @@ body {
 
 .card__main {
   background-color: #212121;
-  max-width: 25rem;
+  max-width: 85vw;
+  /* max-width: 25rem; */
 }
 
 .card__schedule {
@@ -111,4 +112,84 @@ body {
 .tbc-warning {
   color: antiquewhite;
   font-size: 0.7rem;
+}
+
+.race__weekend {
+  font-size: 1.2rem;
+  color: red;
+  animation-name: lightsOut;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: steps(1, end);
+}
+
+.circle {
+  height: 20px;
+  width: 20px;
+  background-color: #242424;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.race__weekend .circle:nth-child(1) {
+  animation: circle1 10s steps(1, end) 3;
+}
+.race__weekend .circle:nth-child(2) {
+  animation: circle2 10s steps(1, end) 3;
+}
+.race__weekend .circle:nth-child(3) {
+  animation: circle3 10s steps(1, end) 3;
+}
+.race__weekend .circle:nth-child(4) {
+  animation: circle4 10s steps(1, end) 3;
+}
+.race__weekend .circle:nth-child(5) {
+  animation: circle5 10s steps(1, end) 3;
+}
+
+@keyframes circle1 {
+  0% {
+    background-color: #242424;
+  }
+  10%,
+  100% {
+    background-color: red;
+  }
+}
+@keyframes circle2 {
+  0% {
+    background-color: #242424;
+  }
+  20%,
+  100% {
+    background-color: red;
+  }
+}
+@keyframes circle3 {
+  0% {
+    background-color: #242424;
+  }
+  30%,
+  100% {
+    background-color: red;
+  }
+}
+@keyframes circle4 {
+  0% {
+    background-color: #242424;
+  }
+  40%,
+  100% {
+    background-color: red;
+  }
+}
+@keyframes circle5 {
+  0% {
+    background-color: #242424;
+  }
+  50%,
+  100% {
+    background-color: red;
+  }
 }
