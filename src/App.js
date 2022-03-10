@@ -160,20 +160,20 @@ const raceDetails = {
     },
     confirmed: false,
     practice1: {
-      start: "20220422T120000Z",
-      end: "20220422T130000Z",
+      start: "20220422T110000Z",
+      end: "20220422T120000Z",
     },
     practice2: {
-      start: "20220423T110000Z",
-      end: "20220423T120000Z",
+      start: "20220423T140000Z",
+      end: "20220423T150000Z",
     },
     practice3: {
-      start: "",
-      end: "",
+      start: "20220423T120000Z",
+      end: "20220423T120000Z",
     },
     sprint: {
-      start: "",
-      end: "",
+      start: "20220423T120000Z",
+      end: "20220423T120000Z",
     },
     qualifying: {
       start: "20220423T140000Z",
@@ -438,8 +438,8 @@ const raceDetails = {
       end: "20220709T120000Z",
     },
     practice3: {
-      start: "",
-      end: "",
+      start: "20220709T110000Z",
+      end: "20220709T120000Z",
     },
     qualifying: {
       start: "20220709T140000Z",
