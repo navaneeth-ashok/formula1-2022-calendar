@@ -878,7 +878,7 @@ function App({ current }) {
 
   const { width } = useWindowDimensions();
 
-  const getIDofCurrentRace = (next = false) => {
+  const getIDofRace = (raceEvent) => {
     const currentDate = new Date(new Date().toISOString());
     for (let race in raceDetails) {
       const year = raceDetails[race].practice1.start.substring(0, 4);
@@ -889,8 +889,10 @@ function App({ current }) {
       const dateString = new Date(Date.UTC(year, month - 1, date, HH, mm));
       const daysLeft = (dateString - currentDate) / (1000 * 60 * 60 * 24);
       // find ongoing race
-      if (!next) {
-        if (daysLeft > -3 && daysLeft < 1) {
+      if (raceEvent === "current") {
+        if (daysLeft > 1) {
+          break;
+        } else if (daysLeft > -3 && daysLeft < 1) {
           // console.log("Found the current race");
           const raceID = raceDetails[race].gpName.replaceAll(" ", "");
           // console.log(raceID);
@@ -911,14 +913,18 @@ function App({ current }) {
   };
 
   useEffect(() => {
-    getIDofCurrentRace();
-    getIDofCurrentRace(true);
+    getIDofRace("current");
+    getIDofRace("next");
     if (current === "true") {
       // console.log("Focussing to the current race");
       // console.log(currentRaceID);
       if (currentRaceID != null) {
         document
           .getElementById(currentRaceID)
+          .scrollIntoView({ top: 0, behavior: "smooth" });
+      } else if (currentRaceID === null && nextRaceID !== null) {
+        document
+          .getElementById(nextRaceID)
           .scrollIntoView({ top: 0, behavior: "smooth" });
       }
     }
@@ -928,18 +934,6 @@ function App({ current }) {
     <div className="App">
       <Header />
       <nav>
-        {/* <div className="grid grid-cols-6">
-          {Object.keys(raceDetails).map((key) => (
-            <div className="shrink-0 snap-center" key={key}>
-              <a
-                href={`#${raceDetails[key].gpName.replaceAll(" ", "")}`}
-                title={raceDetails[key].gpName}
-              >
-                {raceDetails[key].gpName}
-              </a>
-            </div>
-          ))}
-        </div> */}
         {currentRaceID !== null ? (
           <button
             type="button"
@@ -948,7 +942,7 @@ function App({ current }) {
             onClick={() => {
               document
                 .getElementById(currentRaceID)
-                .scrollIntoView({ top: 0, behavior: "auto" });
+                .scrollIntoView({ top: 0, behavior: "smooth" });
             }}
           >
             Current Race
@@ -962,7 +956,7 @@ function App({ current }) {
             onClick={() => {
               document
                 .getElementById(nextRaceID)
-                .scrollIntoView({ top: 0, behavior: "auto" });
+                .scrollIntoView({ top: 0, behavior: "smooth" });
             }}
           >
             Next Race
