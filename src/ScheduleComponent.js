@@ -73,6 +73,7 @@ const ScheduleComponent = ({ raceDetails, currentRaceID }) => {
           eventType="freepractice"
           eventName="FP1"
         />
+        <div className="text-sm text-gray-500">formula1-2022.web.app</div>
       </div>
       <div className="card__track m-2 rounded-md p-2">
         <h3 className="pl-3 pr-3">{raceDetails.name}</h3>

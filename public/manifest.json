@@ -1,6 +1,14 @@
 {
   "short_name": "F1 2022 Schedule",
   "name": "F1 2022 Schedule",
+  "author": "Navaneeth Ashok",
+  "manifest_version": 2,
+  "description": "A web-app with offline support for keeping track of the 2022 Forumula1 Season race schedule and track information.",
+  "developer": {
+    "name": "Navaneeth Ashok",
+    "url": "https://navaneeth.dev/"
+  },
+  "version": "1.0",
   "icons": [
     {
       "src": "logo.png",
