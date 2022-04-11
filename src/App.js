@@ -158,26 +158,22 @@ const raceDetails = {
         driver: "Lewis Hamilton",
       },
     },
-    confirmed: false,
+    confirmed: true,
     practice1: {
-      start: "20220422T110000Z",
-      end: "20220422T120000Z",
+      start: "20220422T113000Z",
+      end: "20220422T123000Z",
     },
     practice2: {
-      start: "20220423T140000Z",
-      end: "20220423T150000Z",
-    },
-    practice3: {
-      start: "20220423T120000Z",
-      end: "20220423T120000Z",
+      start: "20220423T103000Z",
+      end: "20220423T113000Z",
     },
     sprint: {
-      start: "20220423T120000Z",
-      end: "20220423T120000Z",
+      start: "20220423T143000Z",
+      end: "20220423T153000Z",
     },
     qualifying: {
-      start: "20220423T140000Z",
-      end: "20220423T150000Z",
+      start: "20220422T150000Z",
+      end: "20220422T160000Z",
     },
     grandprix: {
       start: "20220424T130000Z",
@@ -428,22 +424,22 @@ const raceDetails = {
         driver: "Carlos Sainz",
       },
     },
-    confirmed: false,
+    confirmed: true,
     practice1: {
-      start: "20220708T120000Z",
-      end: "20220708T130000Z",
+      start: "20220708T113000Z",
+      end: "20220708T123000Z",
     },
     practice2: {
-      start: "20220709T110000Z",
-      end: "20220709T120000Z",
-    },
-    practice3: {
-      start: "20220709T110000Z",
-      end: "20220709T120000Z",
+      start: "20220709T103000Z",
+      end: "20220709T113000Z",
     },
     qualifying: {
-      start: "20220709T140000Z",
-      end: "20220709T150000Z",
+      start: "20220708T150000Z",
+      end: "20220708T160000Z",
+    },
+    sprint: {
+      start: "20220709T143000Z",
+      end: "20220709T153000Z",
     },
     grandprix: {
       start: "20220710T130000Z",

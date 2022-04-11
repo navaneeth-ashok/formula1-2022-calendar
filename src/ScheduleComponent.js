@@ -42,12 +42,7 @@ const ScheduleComponent = ({ raceDetails, currentRaceID }) => {
           eventName="Race"
         />
         <div className="card__divider"></div>
-        <EventComponent
-          eventDetails={raceDetails.qualifying}
-          eventType="quali"
-          eventName="Qualifying"
-        />
-        <div className="card__divider"></div>
+
         {raceDetails.sprint ? (
           <EventComponent
             eventDetails={raceDetails.sprint}
@@ -56,11 +51,21 @@ const ScheduleComponent = ({ raceDetails, currentRaceID }) => {
           />
         ) : null}
         {raceDetails.sprint ? <div className="card__divider"></div> : null}
+
         <EventComponent
-          eventDetails={raceDetails.practice3}
-          eventType="freepractice"
-          eventName="FP3"
+          eventDetails={raceDetails.qualifying}
+          eventType="quali"
+          eventName="Qualifying"
         />
+        <div className="card__divider"></div>
+        {raceDetails.practice3 ? (
+          <EventComponent
+            eventDetails={raceDetails.practice3}
+            eventType="freepractice"
+            eventName="FP3"
+          />
+        ) : null}
+
         <div className="card__divider"></div>
         <EventComponent
           eventDetails={raceDetails.practice2}
